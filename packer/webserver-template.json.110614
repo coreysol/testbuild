@@ -1,0 +1,47 @@
+{
+  "variables": {
+    "aws_access_key": "",
+    "aws_secret_key": "",
+    "my_build": "{{env `MY_BUILD`}}",
+    "my_build_file": "{{env `MY_BUILD_FILE`}}"
+  },
+
+  "builders": [{
+    "type": "amazon-ebs",
+    "access_key": "{{user `aws_access_key`}}",
+    "secret_key": "{{user `aws_secret_key`}}",
+    "region": "us-west-2",
+    "source_ami": "ami-8786c6b7",
+    "instance_type": "t2.micro",
+    "ssh_username": "ec2-user",
+    "ami_name": "webserver-2 {{timestamp}}",
+    "security_group_ids": ["sg-8a6d0def", "sg-266e0e43"]
+  }],
+
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "scripts/puppet_agent_setup.sh"
+    },
+    {
+      "type": "puppet-server",
+      "options": "--test --pluginsync",
+      "facter": {
+        "server_role": "webserver"
+      },
+      "prevent_sudo": "true",
+      "puppet_server": "ip-172-31-34-227.us-west-2.compute.internal"
+    },
+    {
+      "type": "file",
+      "source": "{{user `my_build`}}",
+      "destination": "/tmp"
+    },
+    {
+      "type": "shell",
+      "script": "scripts/install_build.sh",
+      "environment_vars": ["MY_BUILD_FILE={{user `my_build_file`}}"]
+    }
+  ]
+}
+
