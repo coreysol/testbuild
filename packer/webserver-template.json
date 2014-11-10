@@ -11,7 +11,7 @@
     "access_key": "{{user `aws_access_key`}}",
     "secret_key": "{{user `aws_secret_key`}}",
     "region": "us-west-2",
-    "source_ami": "ami-8786c6b7",
+    "source_ami": "ami-99bef1a9",
     "instance_type": "t2.micro",
     "ssh_username": "ec2-user",
     "ami_name": "webserver-2 {{timestamp}}",
