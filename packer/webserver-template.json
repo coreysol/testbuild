@@ -11,10 +11,10 @@
     "access_key": "{{user `aws_access_key`}}",
     "secret_key": "{{user `aws_secret_key`}}",
     "region": "us-west-2",
-    "source_ami": "ami-99bef1a9",
+    "source_ami": "ami-3d50120d",
     "instance_type": "t2.micro",
-    "ssh_username": "ec2-user",
-    "ami_name": "webserver-2 {{timestamp}}",
+    "ssh_username": "ubuntu",
+    "ami_name": "webserver {{timestamp}}",
     "security_group_ids": ["sg-8a6d0def", "sg-266e0e43"]
   }],
 
