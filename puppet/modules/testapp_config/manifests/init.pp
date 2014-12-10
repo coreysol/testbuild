@@ -3,7 +3,7 @@ class testapp_config {
    file { '/home/myapp':
      ensure => "directory",
      owner => "root",
-     group => "root",
+     group => "ubuntu",
      mode => "755",
    }
 # notice: /Stage[main]/Testapp_config/File[/home/myapp]/ensure: created
