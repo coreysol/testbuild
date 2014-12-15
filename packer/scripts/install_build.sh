@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# build script
+# build script addition
 BUILD_FILE=$MY_BUILD_FILE
 BUILD_DIR=/home/myapp
 echo "My build file = " $BUILD_FILE
