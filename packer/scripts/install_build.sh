@@ -8,9 +8,9 @@ sudo chmod 755 $BUILD_DIR
 cd $BUILD_DIR
 sudo cp /tmp/$BUILD_FILE $BUILD_DIR
 sudo tar -xzvf $BUILD_FILE
-touch $BUILD_DIR/log/production.log
+sudo touch $BUILD_DIR/log/production.log
 sudo chmod 666 $BUILD_DIR/log/production.log
-touch $BUILD_DIR/log/development.log
+sudo touch $BUILD_DIR/log/development.log
 sudo chmod 666 $BUILD_DIR/log/development.log
 echo "Installing bundled gems"
 bundler install
